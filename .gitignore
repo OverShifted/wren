@@ -1,3 +1,7 @@
+# OverEngine
+bin-int/
+wren.vcxproj*
+
 # Build outputs
 /bin
 /lib
