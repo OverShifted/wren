@@ -889,7 +889,7 @@ DEF_PRIMITIVE(object_toString)
 {
   Obj* obj = AS_OBJ(args[0]);
   Value name = OBJ_VAL(obj->classObj->name);
-  RETURN_VAL(wrenStringFormat(vm, "instance of @", name));
+  RETURN_VAL(wrenStringFormat(vm, "<instance of @>", name));
 }
 
 DEF_PRIMITIVE(object_type)

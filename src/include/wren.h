@@ -102,6 +102,9 @@ typedef WrenForeignMethodFn (*WrenBindForeignMethodFn)(WrenVM* vm,
 // Displays a string of text to the user.
 typedef void (*WrenWriteFn)(WrenVM* vm, const char* text);
 
+typedef struct sClassInfo ClassInfo;
+typedef void (*WrenReportClassFn)(WrenVM* vm, ClassInfo* classInfo);
+
 typedef enum
 {
   // A syntax or resolution error detected at compile time.
@@ -231,6 +234,11 @@ typedef struct
   // number, and an error message. If this is `NULL`, Wren doesn't report any
   // errors.
   WrenErrorFn errorFn;
+
+	// Called after a class gets compiled.
+	//
+  // If this is `NULL`, Wren doesn't report any classes.
+	WrenReportClassFn reportClassFn;
 
   // The number of bytes Wren will allocate before triggering the first garbage
   // collection.
