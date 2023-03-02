@@ -3535,9 +3535,9 @@ static void classDefinition(Compiler* compiler, bool isForeign)
     consumeLine(compiler, "Expect newline after definition in class.");
   }
 
-	WrenVM* vm = compiler->parser->vm;
-	if (vm->config.reportClassFn)
-		vm->config.reportClassFn(vm, &classInfo);
+  WrenVM* vm = compiler->parser->vm;
+  if (vm->config.reportClassFn)
+    vm->config.reportClassFn(vm, &classInfo);
 
   // If any attributes are present, 
   // instantiate a ClassAttributes instance for the class
